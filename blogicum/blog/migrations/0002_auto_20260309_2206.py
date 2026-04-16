@@ -6,20 +6,25 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0001_initial'),
+        ("blog", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name': 'категория', 'verbose_name_plural': 'Категории'},
+            name="category",
+            options={"verbose_name": "категория",
+                     "verbose_name_plural": "Категории"},
         ),
         migrations.AlterModelOptions(
-            name='location',
-            options={'verbose_name': 'местоположение', 'verbose_name_plural': 'Местоположения'},
+            name="location",
+            options={
+                "verbose_name": "местоположение",
+                "verbose_name_plural": "Местоположения",
+            },
         ),
         migrations.AlterModelOptions(
-            name='post',
-            options={'verbose_name': 'публикация', 'verbose_name_plural': 'Публикации'},
+            name="post",
+            options={"verbose_name": "публикация",
+                     "verbose_name_plural": "Публикации"},
         ),
     ]

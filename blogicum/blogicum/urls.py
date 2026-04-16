@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
@@ -22,22 +23,22 @@ from django.conf.urls.static import static
 from pages.views import profile
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('blog.urls')),
+    path("admin/", admin.site.urls),
+    path("", include("blog.urls")),
     path(
-        'auth/registration/', 
+        "auth/registration/",
         CreateView.as_view(
-            template_name='registration/registration_form.html',
+            template_name="registration/registration_form.html",
             form_class=UserCreationForm,
-            success_url=reverse_lazy('login'),
+            success_url=reverse_lazy("login"),
         ),
-        name='registration',
+        name="registration",
     ),
-    path('profile/<str:username>/', profile, name='profile'),
-    path('auth/', include('django.contrib.auth.urls')),
-    path('pages/', include('pages.urls'))
+    path("profile/<str:username>/", profile, name="profile"),
+    path("auth/", include("django.contrib.auth.urls")),
+    path("pages/", include("pages.urls")),
 ]
 
 
-handler404 = 'pages.views.page_not_found'
-handler500 = 'pages.views.server_error'
+handler404 = "pages.views.page_not_found"
+handler500 = "pages.views.server_error"
